@@ -3,8 +3,13 @@
     document.body.setAttribute('data-bs-theme', theme);
     localStorage.setItem('theme', theme);
     var switchThemeBtn = document.getElementById('switchTheme');
+    const profileImage = document.getElementById('profileImage');
+    const logoImage = document.getElementById('logoImage');
+
     if (switchThemeBtn) {
         switchThemeBtn.innerHTML = theme === 'dark' ?  '<i class="bi bi-sun-fill"></i>' : '<i class="bi bi-moon-stars-fill"></i>';
+        profileImage.src=theme === 'dark' ? 'assets/images/profile2.jpg' : 'assets/images/profile1.jpg';
+        logoImage.src=theme === 'dark' ? 'assets/images/logo.png' : 'assets/images/logo1.png';
     }
     //console.log(`Switched to ${theme} theme`);
 }
@@ -20,7 +25,13 @@ if (switchThemeBtn) {
         setTheme(currentTheme);
     });
 }
-
+var profileImage = document.getElementById('profileImage');
+if (profileImage) {
+    profileImage.addEventListener('click', () => {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(currentTheme);
+    });
+}
 //AOS Initiliaze
 AOS.init();
 
